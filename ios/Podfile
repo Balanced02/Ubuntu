@@ -1,0 +1,33 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Ubuntu' do
+  pod 'AppCenterReactNativeShared', '~> 1.9.0'
+  pod 'AppCenter/Push', '~> 1.10.0'
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for Ubuntu
+
+  
+
+  platform :ios, '9.0'
+  target 'UbuntuTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'Ubuntu-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for Ubuntu-tvOS
+
+  target 'Ubuntu-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

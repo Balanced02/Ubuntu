@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "745031434221",
+    "firebase_url": "https://wakanda-a4c10.firebaseio.com",
+    "project_id": "wakanda-a4c10",
+    "storage_bucket": "wakanda-a4c10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745031434221:android:8aabd3fa476a9e7f",
+        "android_client_info": {
+          "package_name": "com.ubuntu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745031434221-kns6i5uqc8931plgrh57oai3tt7hf9uc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdaUNlmmURi_LmkCMfXu5jXT1stVHmEJI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
