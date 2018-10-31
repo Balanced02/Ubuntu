@@ -11,7 +11,7 @@ import CustomButton from "../../components/Button";
 
 const { width, height } = Dimensions.get("window");
 
-const ageGroups = [{
+let ageGroups = [{
   id: "0001",
   group: "18 - 25"
 }, {
@@ -34,7 +34,8 @@ export default class AgeGroup extends Component {
     super(props);
     this.state = {
       selectedAge: "",
-      profile: [{}]
+      profile: [{}],
+      profileType: ""
     };
   }
 
@@ -49,12 +50,38 @@ export default class AgeGroup extends Component {
       });
     } else {
       let { profile } = this.state;
-      profile[0].ageGroup = ageGroups.filter(ageGroup => ageGroup.id === selectedAge)[0].group;
-      saveData(JSON.stringify(profile), "@UbuntuKeyName", this.props.navigation, "BloodGroup");
+      if (this.state.profileType === "new") {
+        profile[profile.length - 1].ageGroup = ageGroups.filter(ageGroup => ageGroup.id === selectedAge)[0].group;
+      } else {
+        profile[0].ageGroup = ageGroups.filter(ageGroup => ageGroup.id === selectedAge)[0].group;
+      }
+      saveData(JSON.stringify(profile), "@UbuntuKeyName", this.props.navigation, "BloodGroup", this.state.profileType);
     }
   };
 
   async componentWillMount() {
+    const { navigation } = this.props;
+    const profile = navigation.getParam("type", "");
+    if (profile === "new") {
+      ageGroups = [{
+        id: "0005",
+        group: "0 - 8"
+      },{id: "0001",
+      group: "9 - 17"},{
+        id: "0001",
+        group: "18 - 25"
+      }, {
+        id: "0002",
+        group: "25 - 40"
+      }, {
+        id: "0003",
+        group: "40 - 60"
+      }, {
+        id: "0004",
+        group: "60 and above"
+      }];
+    }
+    this.setState({ profileType: profile });
     try {
       await AsyncStorage.getItem("@UbuntuProfile", (err, result) => {
         if (result) {

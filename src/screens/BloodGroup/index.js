@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Dimensions, TextInput } from "react-native";
+import { StyleSheet, Text, View, Dimensions, AsyncStorage } from "react-native";
 
 import { ListItem, Left, Right, Radio, Content, Toast } from "native-base";
 
@@ -45,7 +45,8 @@ export default class BloodGroup extends Component {
     super(props);
     this.state = {
       selectedAge: "",
-      profile: [{}]
+      profile: [{}],
+      profileType: "",
     };
   }
 
@@ -59,10 +60,33 @@ export default class BloodGroup extends Component {
       this.props.navigation.navigate("Genotype");
     } else {
       let { profile } = this.state;
-      profile[0].bloodGroup = ageGroups.filter(ageGroup => ageGroup.id === selectedAge)[0].group;
+      if (this.state.profileType === "new") {
+        profile[profile.length - 1].bloodGroup = ageGroups.filter(ageGroup => ageGroup.id === selectedAge)[0].group;
+      } else {
+        profile[0].bloodGroup = ageGroups.filter(ageGroup => ageGroup.id === selectedAge)[0].group;
+      }
       saveData(JSON.stringify(profile), "@UbuntuKeyName", this.props.navigation, "Genotype");
     }
   };
+
+  async componentWillMount() {
+    const { navigation } = this.props;
+    const profile = navigation.getParam("type", "");
+    this.setState({ profileType: profile });
+    try {
+      await AsyncStorage.getItem("@UbuntuProfile", (err, result) => {
+        if (result) {
+          console.log(result);
+          this.setState({
+            profile: JSON.parse(result)
+          });
+        }
+        console.log(err);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   render() {
     return (

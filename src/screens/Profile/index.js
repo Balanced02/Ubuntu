@@ -53,6 +53,10 @@ class Home extends Component {
     }
   }
 
+  newProfile = () => {
+    this.props.navigation.navigate("NewProfile");
+  }
+
   renderPersonRow(person) {
     return (
       <TouchableOpacity
@@ -107,8 +111,11 @@ class Home extends Component {
       <MenuContext style={styles.mainContainer}>
         <View style={styles.headerContainer}>
           <View style={styles.leftHeaderContainer}>
-            <Menu
-              onSelect={value => alert(`User selected the number ${value}`)}
+            <Text style={styles.logoText}>Ubuntu</Text>
+            </View>
+          <View style={styles.rightHeaderContainer}>
+          <Menu
+              onSelect={this.newProfile}
             >
               <MenuTrigger>
                 <Icon
@@ -118,21 +125,13 @@ class Home extends Component {
                   style={{ padding: 5 }}
                 />
               </MenuTrigger>
-              <MenuOptions>
-                <MenuOption value={1}>
-                  <Text>Refresh</Text>
-                </MenuOption>
-                <MenuOption value={2}>
-                  <Text>Status</Text>
-                </MenuOption>
-                <MenuOption value={3}>
-                  <Text>Settings</Text>
+              <MenuOptions >
+                <MenuOption value={1} >
+                  <Text >New Profile</Text>
                 </MenuOption>
               </MenuOptions>
             </Menu>
-          </View>
-          <View style={styles.rightHeaderContainer}>
-            <Text style={styles.logoText}>Ubuntu</Text>
+
           </View>
         </View>
         <View style={styles.contentContainer}>
@@ -166,8 +165,9 @@ const styles = StyleSheet.create({
     paddingLeft: 5
   },
   leftHeaderContainer: {
-    alignItems: "flex-start",
-    flexDirection: "row"
+    flex: 1,
+    // alignItems: "flex-start",
+    // flexDirection: "row"
   },
   rightHeaderContainer: {
     alignItems: "flex-end",

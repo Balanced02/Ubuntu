@@ -4,11 +4,15 @@ import axios from "axios";
 import React from "react";
 import { AsyncStorage } from "react-native";
 
-export const saveData = (data, keyName, navigation, route) => {
+export const saveData = (data, keyName, navigation, route, type) => {
   try {
     AsyncStorage.setItem(keyName, data).then(data => {
       if (navigation && route) {
-         navigation.navigate(route);
+        if (type === "new") {
+         navigation.navigate(route, { type });
+        } else {
+          navigation.navigate(route);
+        }
       }
     });
   } catch (error) {
@@ -1457,5 +1461,1388 @@ export const abujaDisease = [
     "Sn": 184485,
     "State": "Fct, Abuja",
     "Year": "1/1/2007"
+  }
+];
+
+export const lagosDisease = [
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 40,
+    "Lga": "Alimosho",
+    "Sex": "Male",
+    "Sn": 20,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 41,
+    "Lga": "Lagos Island",
+    "Sex": "Male",
+    "Sn": 21,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 41,
+    "Lga": "Badagry",
+    "Sex": "Female",
+    "Sn": 22,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 40,
+    "Lga": "Eti Osa",
+    "Sex": "Female",
+    "Sn": 34,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 41,
+    "Lga": "Lagos Island",
+    "Sex": "Male",
+    "Sn": 83,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 41,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 84,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 41,
+    "Lga": "Lagos Island",
+    "Sex": "Female",
+    "Sn": 85,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 42,
+    "Lga": "Lagos Island",
+    "Sex": "Male",
+    "Sn": 86,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 42,
+    "Lga": "Lagos Island",
+    "Sex": "Male",
+    "Sn": 87,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 41,
+    "Lga": "Lagos Island",
+    "Sex": "Male",
+    "Sn": 90,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 40,
+    "Lga": "Ojo",
+    "Sex": "Male",
+    "Sn": 113,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 40,
+    "Lga": "Eti Osa",
+    "Sex": "Female",
+    "Sn": 115,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 41,
+    "Lga": "Ifako/Ijaiye",
+    "Sex": "Male",
+    "Sn": 126,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 40,
+    "Lga": "Ifako/Ijaiye",
+    "Sex": "Male",
+    "Sn": 129,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 41,
+    "Lga": "Oshodi/Isolo",
+    "Sex": "Male",
+    "Sn": 130,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 41,
+    "Lga": "Agege",
+    "Sex": "Male",
+    "Sn": 150,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Monkeypox",
+    "Epidemilogical Week": 52,
+    "Lga": "Ojo",
+    "Sex": "Female",
+    "Sn": 180,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 26,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2072,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 27,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2073,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 27,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2074,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 26,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2075,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 26,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2076,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 27,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2077,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 26,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2078,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 26,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2079,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 26,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2080,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 26,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2081,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 26,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2082,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 26,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2083,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 26,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2084,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 28,
+    "Lga": "Mushin",
+    "Sex": "Female",
+    "Sn": 2085,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 28,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2086,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2087,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Ikorodu",
+    "Sex": "Male",
+    "Sn": 2088,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2089,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2090,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2091,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2092,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2093,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2094,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 30,
+    "Lga": "Mushin",
+    "Sex": "Male",
+    "Sn": 2095,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 30,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2096,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 30,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2097,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 30,
+    "Lga": "Surulere",
+    "Sex": "Female",
+    "Sn": 2098,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 30,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2099,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 30,
+    "Lga": "Surulere",
+    "Sex": "Male",
+    "Sn": 2100,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 30,
+    "Lga": "Mushin",
+    "Sex": "Female",
+    "Sn": 2101,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 30,
+    "Lga": "Mushin",
+    "Sex": "Female",
+    "Sn": 2102,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2103,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2104,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2105,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2106,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Shomolu",
+    "Sex": "Female",
+    "Sn": 2107,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Shomolu",
+    "Sex": "Female",
+    "Sn": 2108,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 29,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2109,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 30,
+    "Lga": "Lagos Mainland",
+    "Sex": "Male",
+    "Sn": 2110,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 28,
+    "Lga": "Oshodi/Isolo",
+    "Sex": "Female",
+    "Sn": 2111,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 28,
+    "Lga": "Oshodi/Isolo",
+    "Sex": "Male",
+    "Sn": 2112,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2113,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2114,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2115,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Female",
+    "Sn": 2116,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Female",
+    "Sn": 2117,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2118,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Female",
+    "Sn": 2119,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2120,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2121,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2122,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2123,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2124,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2125,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2126,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2127,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2128,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 33,
+    "Lga": "Apapa",
+    "Sex": "Male",
+    "Sn": 2129,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 32,
+    "Lga": "Lagos Island",
+    "Sex": "Male",
+    "Sn": 2130,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 32,
+    "Lga": "Lagos Island",
+    "Sex": "Male",
+    "Sn": 2131,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 31,
+    "Lga": "Lagos Island",
+    "Sex": "Female",
+    "Sn": 2132,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 31,
+    "Lga": "Oshodi/Isolo",
+    "Sex": "Male",
+    "Sn": 2133,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 31,
+    "Lga": "Oshodi/Isolo",
+    "Sex": "Female",
+    "Sn": 2134,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 30,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2135,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 31,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2136,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 31,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2137,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 31,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2138,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 31,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2139,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 31,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2140,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 31,
+    "Lga": "Shomolu",
+    "Sex": "Male",
+    "Sn": 2141,
+    "State": "Lagos",
+    "Year": "1/1/2017"
+  }
+];
+
+export const kanoDisease = [
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Bagwai",
+    "Sex": "Male",
+    "Sn": 10977,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dala",
+    "Sex": "Male",
+    "Sn": 11037,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dala",
+    "Sex": "Female",
+    "Sn": 11038,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dala",
+    "Sex": "Female",
+    "Sn": 11039,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dala",
+    "Sex": "Male",
+    "Sn": 11040,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dala",
+    "Sex": "Female",
+    "Sn": 11041,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dala",
+    "Sex": "Male",
+    "Sn": 11042,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dala",
+    "Sex": "Female",
+    "Sn": 11043,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dala",
+    "Sex": "Female",
+    "Sn": 11044,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dala",
+    "Sex": "Female",
+    "Sn": 11045,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dala",
+    "Sex": "Male",
+    "Sn": 11046,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 2,
+    "Lga": "Dala",
+    "Sex": "Female",
+    "Sn": 11047,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 2,
+    "Lga": "Dala",
+    "Sex": "Male",
+    "Sn": 11048,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dawakin Kudu",
+    "Sex": "Female",
+    "Sn": 11061,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dawakin Kudu",
+    "Sex": "Female",
+    "Sn": 11062,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Dawakin Kudu",
+    "Sex": "Female",
+    "Sn": 11063,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Fagge",
+    "Sex": "Female",
+    "Sn": 11112,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Fagge",
+    "Sex": "Male",
+    "Sn": 11113,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Fagge",
+    "Sex": "Female",
+    "Sn": 11114,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Fagge",
+    "Sex": "Female",
+    "Sn": 11115,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Fagge",
+    "Sex": "Male",
+    "Sn": 11116,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Fagge",
+    "Sex": "Male",
+    "Sn": 11117,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Fagge",
+    "Sex": "Female",
+    "Sn": 11118,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Fagge",
+    "Sex": "Male",
+    "Sn": 11119,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Fagge",
+    "Sex": "Male",
+    "Sn": 11120,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Fagge",
+    "Sex": "Female",
+    "Sn": 11121,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 2,
+    "Lga": "Fagge",
+    "Sex": "Male",
+    "Sn": 11122,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Female",
+    "Sn": 11183,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Male",
+    "Sn": 11184,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Female",
+    "Sn": 11185,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Male",
+    "Sn": 11186,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Male",
+    "Sn": 11187,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Male",
+    "Sn": 11188,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Female",
+    "Sn": 11189,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Male",
+    "Sn": 11190,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Female",
+    "Sn": 11191,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 2,
+    "Lga": "Gwale",
+    "Sex": "Male",
+    "Sn": 11192,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Male",
+    "Sn": 11193,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Male",
+    "Sn": 11194,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Female",
+    "Sn": 11195,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Gwale",
+    "Sex": "Male",
+    "Sn": 11196,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Kano Municipal",
+    "Sex": "Male",
+    "Sn": 11276,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Kano Municipal",
+    "Sex": "Male",
+    "Sn": 11277,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Kano Municipal",
+    "Sex": "Male",
+    "Sn": 11278,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Kano Municipal",
+    "Sex": "Male",
+    "Sn": 11279,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Kano Municipal",
+    "Sex": "Male",
+    "Sn": 11280,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Kano Municipal",
+    "Sex": "Male",
+    "Sn": 11281,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Kano Municipal",
+    "Sex": "Male",
+    "Sn": 11282,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 2,
+    "Lga": "Kano Municipal",
+    "Sex": "Female",
+    "Sn": 11283,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 2,
+    "Lga": "Kano Municipal",
+    "Sex": "Male",
+    "Sn": 11284,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 2,
+    "Lga": "Kano Municipal",
+    "Sex": "Male",
+    "Sn": 11285,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 2,
+    "Lga": "Kano Municipal",
+    "Sex": "Female",
+    "Sn": 11286,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 2,
+    "Lga": "Kano Municipal",
+    "Sex": "Female",
+    "Sn": 11287,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Kura",
+    "Sex": "Female",
+    "Sn": 11288,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Nassarawa",
+    "Sex": "Female",
+    "Sn": 11398,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Nassarawa",
+    "Sex": "Female",
+    "Sn": 11399,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Nassarawa",
+    "Sex": "Female",
+    "Sn": 11400,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Nassarawa",
+    "Sex": "Male",
+    "Sn": 11401,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Tarauni",
+    "Sex": "Female",
+    "Sn": 11418,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Tarauni",
+    "Sex": "Male",
+    "Sn": 11419,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Tarauni",
+    "Sex": "Female",
+    "Sn": 11420,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Ungogo",
+    "Sex": "Female",
+    "Sn": 11499,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Ungogo",
+    "Sex": "Male",
+    "Sn": 11500,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Ungogo",
+    "Sex": "Male",
+    "Sn": 11501,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Ungogo",
+    "Sex": "Female",
+    "Sn": 11502,
+    "State": "Kano",
+    "Year": "1/1/2018"
+  },
+  {
+    "Disease": "Cholera",
+    "Epidemilogical Week": 1,
+    "Lga": "Ungogo",
+    "Sex": "Male",
+    "Sn": 11503,
+    "State": "Kano",
+    "Year": "1/1/2018"
   }
 ];

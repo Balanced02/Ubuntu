@@ -26,7 +26,8 @@ export default class PhoneNumber extends Component {
     super(props);
     this.state = {
       username: "",
-      profile: {}
+      profile: {},
+      profileType: "",
     };
   }
 
@@ -42,12 +43,20 @@ export default class PhoneNumber extends Component {
       });
     } else {
       let { profile } = this.state;
-      profile[0].username = username;
-      saveData(JSON.stringify(profile), "@UbuntuProfile", this.props.navigation, "AgeGroup");
+      const phoneNumber = profile[0].phoneNumber;
+      if (this.state.profileType === "new") {
+        profile[profile.length] = { phoneNumber, id: Date.now() + phoneNumber, username };
+      } else {
+        profile[0].username = username;
+      }
+      saveData(JSON.stringify(profile), "@UbuntuProfile", this.props.navigation, "AgeGroup", this.state.profileType);
     }
   };
 
   async componentWillMount() {
+    const { navigation } = this.props;
+    const profile = navigation.getParam("type", "");
+    this.setState({ profileType: profile });
     try {
       await AsyncStorage.getItem("@UbuntuProfile", (err, result) => {
         if (result) {

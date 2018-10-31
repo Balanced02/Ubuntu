@@ -32,7 +32,8 @@ export default class GenoType extends Component {
     super(props);
     this.state = {
       selectedAge: "",
-      profile: [{}]
+      profile: [{}],
+      profileType: "",
     };
   }
 
@@ -42,12 +43,19 @@ export default class GenoType extends Component {
       this.props.navigation.navigate("Home");
     } else {
       let { profile } = this.state;
-      profile[0].genotype = ageGroups.filter(ageGroup => ageGroup.id === selectedAge)[0].group;
+      if (this.state.profileType === "new") {
+        profile[profile.length - 1].genotype = ageGroups.filter(ageGroup => ageGroup.id === selectedAge)[0].group;
+      } else {
+        profile[0].genotype = ageGroups.filter(ageGroup => ageGroup.id === selectedAge)[0].group;
+      }
       saveData(JSON.stringify(profile), "@UbuntuKeyName", this.props.navigation, "Home");
     }
   };
 
   async componentWillMount() {
+    const { navigation } = this.props;
+    const profile = navigation.getParam("type", "");
+    this.setState({ profileType: profile });
     try {
       await AsyncStorage.getItem("@UbuntuProfile", (err, result) => {
         if (result) {

@@ -17,7 +17,7 @@ const { width, height } = Dimensions.get("window");
 
 import Icon from "react-native-vector-icons/MaterialIcons";
 
-import { saveData, abujaDisease } from "../../utils/index";
+import { saveData, abujaDisease, lagosDisease, kanoDisease } from "../../utils/index";
 
 let messages = [];
 
@@ -29,7 +29,8 @@ export default class ChatBox extends Component {
     this.state = {
       msgTxt: "",
       datasource: ds.cloneWithRows(messages),
-      id: ""
+      id: "",
+      index: 0,
     };
   }
 
@@ -87,21 +88,22 @@ export default class ChatBox extends Component {
           "Welcome to Ubuntu, your health is our concern"
         });
       } else {
-        let lastMessage = messages[messages.length - 1];
-        console.log(lastMessage);
-        if (lastMessage.msgTxt.includes("detect") === false ) {
+        let lastMessages = messages.slice(Math.max(messages.length - 9, 1));
+        let checkArray = lastMessages.map(lastMessage => lastMessage.msgTxt.includes("detect") === false);
+        console.log(checkArray);
+        if (checkArray.some(check => check === true) === false ) {
           messages.push({
             id,
             sent: false,
             msgTxt:
               "Welcome back, I'll send you current situation in your location. \n You can also send some keywords like: \n Help: to list all keywords \n Outbreak 'location': To get outbreaks in a particular location e.g. Outbreak Abuja"
           });
-          const disease = abujaDisease[0];
+          const disease = abujaDisease[this.state.index];
           messages.push({
             id,
             sent: false,
             msgTxt:
-              `I detect you're in Abuja, As at ${disease.Year}, there was an outbreak of ${disease.Disease} at ${disease.Lga} of ${disease.State}`
+              `I detect you're in Abuja, As at ${disease.Year}, there was an outbreak of ${disease.Disease} at ${disease.Lga} of ${disease.State} \nSend More for more outbreaks.`
           });
         }
       }
@@ -115,15 +117,34 @@ export default class ChatBox extends Component {
             "Please send Outbreak and Location. For Example, Outbreak Abuja"
         });
       } else {
-        const disease = abujaDisease[0];
-        messages.push({
-          id,
-          sent: false,
-          msgTxt: `As at ${disease.Year}, there was an outbreak of ${disease.Disease} at ${disease.Lga} of ${disease.State}.`
-        });
+        if (msgTxt.includes("abuja")) {
+          const disease = abujaDisease[0];
+          messages.push({
+            id,
+            sent: false,
+            msgTxt: `As at ${disease.Year}, there was an outbreak of ${disease.Disease} at ${disease.Lga} of ${disease.State}. \nSend More for more outbreaks.`
+          });
+        }
+        if (msgTxt.includes("lagos")) {
+          const disease = lagosDisease[this.state.index];
+          messages.push({
+            id,
+            sent: false,
+            msgTxt: `As at ${disease.Year}, there was an outbreak of ${disease.Disease} at ${disease.Lga} of ${disease.State}. \nSend More for more outbreaks.`
+          });
+        }
+        if (msgTxt.includes("kano")) {
+          const disease = kanoDisease[0];
+          messages.push({
+            id,
+            sent: false,
+            msgTxt: `As at ${disease.Year}, there was an outbreak of ${disease.Disease} at ${disease.Lga} of ${disease.State}. \nSend More for more outbreaks.`
+          });
+        }
+
       }
     }
-    if (msgTxt.includes("check") || msgTxt.includes("care") || msgTxt.includes("centres")) {
+    if (msgTxt.includes("check") || msgTxt.includes("care") || msgTxt.includes("centres") || msgTxt.includes("medical") || msgTxt.includes("health") ) {
       messages.push({
         id,
         sent: false,
@@ -137,12 +158,39 @@ export default class ChatBox extends Component {
     }
 
     if (msgTxt.includes("more")) {
-      messages.push({
-        id,
-        sent: false,
-        msgTxt:
-          "Other health care centres are \nAsokoro General Hospital, Asokoro \n "
-      });
+      const lastMessage = messages[messages.length - 2];
+      if (lastMessage) {
+        if (lastMessage.msgTxt.includes("Kano")) {
+          const disease = kanoDisease[this.state.index + 1];
+          this.setState({ index: this.state.index + 1 });
+          messages.push({
+            id,
+            sent: false,
+            msgTxt:
+            `As at ${disease.Year}, there was an outbreak of ${disease.Disease} at ${disease.Lga} of ${disease.State}. \nSend More for more outbreaks.`
+          });
+        }
+        if (lastMessage.msgTxt.includes("Lagos")) {
+          const disease = lagosDisease[this.state.index + 1];
+          this.setState({ index: this.state.index + 1 });
+          messages.push({
+            id,
+            sent: false,
+            msgTxt:
+            `As at ${disease.Year}, there was an outbreak of ${disease.Disease} at ${disease.Lga} of ${disease.State}. \nSend More for more outbreaks.`
+          });
+        }
+        if (lastMessage.msgTxt.includes("Abuja")) {
+          const disease = abujaDisease[this.state.index + 1];
+          this.setState({ index: this.state.index + 1 });
+          messages.push({
+            id,
+            sent: false,
+            msgTxt:
+            `As at ${disease.Year}, there was an outbreak of ${disease.Disease} at ${disease.Lga} of ${disease.State}. \nSend More for more outbreaks.`
+          });
+        }
+      }
     }
 
     if (msgTxt.includes("thanks")) {

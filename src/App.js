@@ -16,6 +16,7 @@ import AgeGroup from "./screens/AgeGroup";
 import BloodGroup from "./screens/BloodGroup";
 import Genotype from "./screens/Genotype";
 import SplashScreen from "./screens/SplashScreen";
+import NewProfile from "./screens/NewProfile";
 
 const transitionConfig = () => {
   return {
@@ -52,7 +53,8 @@ const transitionConfig = () => {
       AgeGroup: { screen: AgeGroup },
       BloodGroup: { screen: BloodGroup },
       Genotype: { screen: Genotype },
-      SplashScreen: {screen: SplashScreen}
+      SplashScreen: {screen: SplashScreen},
+      NewProfile: { screen: NewProfile }
   },
   {
     index: 0,
